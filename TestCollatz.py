@@ -82,8 +82,14 @@ class TestCollatz (TestCase) :
 
     # upper bound not an integer
     def test_read_11 (self) :
-        s    = "2 3.5\n"
+        s    = "1 2.5\n"
         self.assertRaises(AssertionError, collatz_read, s)
+
+    # s not a string
+    def test_read_11 (self) :
+        s    = [1, 10]
+        self.assertRaises(AssertionError, collatz_read, s)
+
 
     # ----
     # eval
@@ -108,13 +114,13 @@ class TestCollatz (TestCase) :
 
     # minimum range, low
     def test_eval_5 (self) :
-        v = collatz_eval(1, 2)
+        v = collatz_eval(1, 1)
         self.assertEqual(v, 1)
 
     # minimum range, low
     def test_eval_6 (self) :
         v = collatz_eval(1, 2)
-        self.assertEqual(v, 1)
+        self.assertEqual(v, 2)
 
     # same result, high
     def test_eval_7 (self) :
@@ -230,6 +236,18 @@ class TestCollatz (TestCase) :
     def test_solve_5 (self) :
         r = StringIO("1 10\n100 200\n201 210\n900 800\n")
         w = StringIO()
+        self.assertRaises(AssertionError, collatz_solve, r, w)
+
+    # r not a reader
+    def test_solve_6 (self) :
+        r = "1 10\n100 200\n201 210\n900 1000\n"
+        w = StringIO()
+        self.assertRaises(AssertionError, collatz_solve, r, w)
+
+    # w not a writer
+    def test_solve_7 (self) :
+        r = StringIO("1 10\n100 200\n201 210\n900 1000\n")
+        w = ""
         self.assertRaises(AssertionError, collatz_solve, r, w)
 
 
