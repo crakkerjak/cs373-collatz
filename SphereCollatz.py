@@ -44,7 +44,7 @@ def collatz_read (s) :
 # collatz_eval
 # ------------
 
-def collatz_eval (i, j) :
+def collatz_eval (i, j, cache) :
   """
   i the beginning of the range, inclusive
   j the end       of the range, inclusive
@@ -59,17 +59,25 @@ def collatz_eval (i, j) :
   max_len = 1
   
   for n in range (i, j + 1):
+    # save original value
+    m = n
     # cycle length
     l = 1   
 
     # Collatz cycle
     while n != 1:
-      if n % 2 == 0:
+      if n in cache:
+        l += cache[n] - 1
+        break
+      elif n % 2 == 0:
         n = n // 2
         l += 1
       else:
         n = n + (n >> 1) + 1
         l += 2
+
+    # cache cycle length
+    cache[m] = l
 
     # store max_len found so far
     if l > max_len:
@@ -114,9 +122,10 @@ def collatz_solve (r, w) :
   assert hasattr(r, 'read')
   assert hasattr(w, 'write')
 
+  cache = {1:1}
   for s in r :
     i, j = collatz_read(s)
-    v  = collatz_eval(i, j)
+    v  = collatz_eval(i, j, cache)
     collatz_print(w, i, j, v)
 
 # ----
