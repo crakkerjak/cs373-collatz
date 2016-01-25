@@ -6,6 +6,8 @@
 # Glenn P. Downing
 # ---------------------------
 
+cache = {1:1,2:2}
+
 # ------------
 # collatz_read
 # ------------
@@ -33,6 +35,27 @@ def collatz_read (s) :
   return [i, j]
 
 # ------------
+# cycle_length
+# ------------
+
+def cycle_length (n) :
+  # base case: if cached, return cached value
+  # note: pre-load cache with {1:1,2:2}
+  global cache
+  if n in cache :
+    return cache[n]
+
+  if n % 2 == 0:
+    l = 1 + cycle_length (n // 2)
+  else:
+    l = 2 + cycle_length (n + (n >> 1) + 1)
+
+  # cache and return cycle length
+  cache[n] = l
+  return l
+
+
+# ------------
 # collatz_eval
 # ------------
 
@@ -46,24 +69,14 @@ def collatz_eval (i, j) :
   assert isinstance (i, int) and isinstance (j, int)
   assert 0 < i and i < 1000000
   assert 0 < j and j < 1000000
-  
   if i > j:
     i, j = j, i
 
   max_len = 1
   
-  for n in range (i, j + 1):
-    # cycle length
-    l = 1   
-
-    # Collatz cycle
-    while n != 1:
-      if n % 2 == 0:
-        n = n // 2
-        l += 1
-      else:
-        n = n + (n >> 1) + 1
-        l += 2
+  for n in range (i, j + 1) :
+    # get cycle length for n 
+    l = cycle_length (n)
 
     # store max_len found so far
     if l > max_len:
@@ -90,7 +103,7 @@ def collatz_print (w, i, j, v) :
   assert isinstance (i, int) and isinstance (j, int) and isinstance(v, int)
   assert 0 < i and i < 1000000
   assert 0 < j and j < 1000000
-  
+
   w.write(str(i) + " " + str(j) + " " + str(v) + "\n")
 
 # -------------
