@@ -33,60 +33,55 @@ class TestCollatz (TestCase) :
     self.assertEqual(i,  1)
     self.assertEqual(j, 10)
 
-  # end < beginning
-  def test_read_2 (self) :
-    s = "10 1\n"
-    self.assertRaises(AssertionError, collatz_read, s)
-
   # end == beginning
-  def test_read_3 (self) :
+  def test_read_2 (self) :
     s    = "10 10\n"
     i, j = collatz_read(s)
     self.assertEqual(i, j)
     self.assertEqual(i, 10)
 
   # input too long
-  def test_read_4 (self) :
+  def test_read_3 (self) :
     s = "1 10 100\n"
     self.assertRaises(AssertionError, collatz_read, s)
 
   #input too short
-  def test_read_5 (self) :
+  def test_read_4 (self) :
     s = "1\n"
     self.assertRaises(AssertionError, collatz_read, s)
 
   # lower bound too low
-  def test_read_6 (self) :
+  def test_read_5 (self) :
     s  = "0 10\n"
     self.assertRaises(AssertionError, collatz_read, s)
 
   # upper bound too high 
-  def test_read_7 (self) :
+  def test_read_6 (self) :
     s  = "1 1000000\n"
     self.assertRaises(AssertionError, collatz_read, s)
 
   # lower bound not a number
-  def test_read_8 (self) :
+  def test_read_7 (self) :
     s  = "a 1\n"
     self.assertRaises(AssertionError, collatz_read, s)
   
   # upper bound not a number
-  def test_read_9 (self) :
+  def test_read_8 (self) :
     s  = "1 a\n"
     self.assertRaises(AssertionError, collatz_read, s)
 
   # lower bound not an integer
-  def test_read_10 (self) :
+  def test_read_9 (self) :
     s  = "1.5 2\n"
     self.assertRaises(AssertionError, collatz_read, s)
 
   # upper bound not an integer
-  def test_read_11 (self) :
+  def test_read_10 (self) :
     s  = "1 2.5\n"
     self.assertRaises(AssertionError, collatz_read, s)
 
   # s not a string
-  def test_read_12 (self) :
+  def test_read_11 (self) :
     s  = [1, 10]
     self.assertRaises(AssertionError, collatz_read, s)
 
@@ -133,7 +128,8 @@ class TestCollatz (TestCase) :
 
   # range boundaries inverted
   def test_eval_9 (self) :
-    self.assertRaises(AssertionError, collatz_eval, 2, 1)
+    v = collatz_eval(10, 1)
+    self.assertEqual(v, 20)
   
   # lower bound not an int
   def test_eval_10 (self) :
@@ -234,9 +230,10 @@ class TestCollatz (TestCase) :
   
   # range boundaries inverted
   def test_solve_5 (self) :
-    r = StringIO("1 10\n100 200\n201 210\n900 800\n")
+    r = StringIO("10 1\n200 100\n210 201\n1000 900\n")
     w = StringIO()
-    self.assertRaises(AssertionError, collatz_solve, r, w)
+    collatz_solve(r, w)
+    self.assertEqual(w.getvalue(), "10 1 20\n200 100 125\n210 201 89\n1000 900 174\n")
 
   # r not a reader
   def test_solve_6 (self) :

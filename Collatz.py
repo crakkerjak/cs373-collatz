@@ -19,18 +19,16 @@ def collatz_read (s) :
   # pre-condition
   assert isinstance(s, str)
   
-  a = s.split()
+  s = s.split()
 
   # post-conditions
-  assert len(a) == 2
+  assert len(s) == 2
   try: 
-    i = int(a[0])
-    j = int(a[1])
+    i, j = ([int(n) for n in s])
   except ValueError:
     assert 0
   assert 0 < i and i < 1000000
   assert 0 < j and j < 1000000
-  assert i <= j
   
   return [i, j]
 
@@ -48,7 +46,9 @@ def collatz_eval (i, j) :
   assert isinstance (i, int) and isinstance (j, int)
   assert 0 < i and i < 1000000
   assert 0 < j and j < 1000000
-  assert i <= j
+  
+  if i > j:
+    i, j = j, i
 
   max_len = 1
   
@@ -90,8 +90,7 @@ def collatz_print (w, i, j, v) :
   assert isinstance (i, int) and isinstance (j, int) and isinstance(v, int)
   assert 0 < i and i < 1000000
   assert 0 < j and j < 1000000
-  assert i <= j
-
+  
   w.write(str(i) + " " + str(j) + " " + str(v) + "\n")
 
 # -------------
