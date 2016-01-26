@@ -84,7 +84,6 @@ def collatz_eval (i, j) :
   # find max in tiles completely included in range
   if j_tile - i_tile > 1 :
     for t in range(i_tile + 1, j_tile) :
-      print ('tile max: ' + str(tiles[t]))
       if tiles[t] > max_len :
         max_len = tiles[t]
   
@@ -103,22 +102,6 @@ def collatz_eval (i, j) :
     max_len = max (max_len, j_tile_max)
   
   return max_len
-
-
-
-
-  
-  # for n in range (i, j + 1) :
-  #   # get cycle length for n 
-  #   l = cycle_length (n)
-  #   print ('n: '+str(n)+', l: '+str(l)+', max_len: '+str(max_len))
-
-  #   # store max_len found so far
-  #   if l > max_len:
-  #     max_len = l
-    
-  # return max_len
-
 
 # -------------
 # collatz_print

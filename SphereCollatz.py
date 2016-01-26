@@ -84,35 +84,34 @@ def collatz_eval (i, j) :
   assert 0 < j and j < 1000000
   if i > j:
     i, j = j, i
-
   max_len = 1
+
 
   tile_size = 1000000 // len(tiles)
   i_tile = i // tile_size
   j_tile = j // tile_size
 
   # find max in tiles completely included in range
-  if tiles[j_tile] - tiles[i_tile] > 1 :
+  if j_tile - i_tile > 1 :
     for t in range(i_tile + 1, j_tile) :
       if tiles[t] > max_len :
         max_len = tiles[t]
-
+  
   # check for higher max in incomplete tile containing i
   if tiles[i_tile] > max_len :
     i_tile_max = 1
     for n in range (i, min(j + 1, i + (tile_size - i % tile_size))) :
       i_tile_max = max (i_tile_max, cycle_length(n))
     max_len = max (max_len, i_tile_max)
-
+  
   # check for higher max in incomplete tile containing j
   if i_tile != j_tile and tiles[j_tile] > max_len :
     j_tile_max = 1
     for n in range (j - (j % tile_size), j + 1) :
       j_tile_max = max (j_tile_max, cycle_length(n))
     max_len = max (max_len, j_tile_max)
-
+  
   return max_len
-
 
 # -------------
 # collatz_print
