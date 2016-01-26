@@ -40,7 +40,7 @@ def collatz_read (s) :
 
 def cycle_length (n) :
   # base case: if cached, return cached value
-  # note: pre-load cache with {1:1,2:2}
+  # note: pre-load cache with at least {1:1}
   global cache
   if n in cache :
     return cache[n]
