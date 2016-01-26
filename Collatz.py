@@ -82,7 +82,7 @@ def collatz_eval (i, j) :
   j_tile = j // tile_size
 
   # find max in tiles completely included in range
-  if tiles[j_tile] - tiles[i_tile] > 1 :
+  if j_tile - i_tile > 1 :
     for t in range(i_tile + 1, j_tile) :
       print ('tile max: ' + str(tiles[t]))
       if tiles[t] > max_len :
