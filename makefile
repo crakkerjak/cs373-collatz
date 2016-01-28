@@ -58,7 +58,7 @@ status:
 test: RunCollatz.tmp TestCollatz.tmp
 
 collatz-tests:
-	git clone https://github.com/cs373-fall-2015/collatz-tests.git
+	git clone https://github.com/cs373-fall-2016/collatz-tests.git
 
 Collatz.html: Collatz.py
 	pydoc3 -w Collatz
