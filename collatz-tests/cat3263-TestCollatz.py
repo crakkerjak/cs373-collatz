@@ -15,7 +15,7 @@
 from io       import StringIO
 from unittest import main, TestCase
 
-from Collatz import collatz_read, cycle_length, collatz_eval, collatz_print, collatz_solve
+from Collatz  import collatz_read, cycle_length, collatz_eval, collatz_print, collatz_solve
 
 # -----------
 # TestCollatz
@@ -39,6 +39,16 @@ class TestCollatz(TestCase):
     i, j = collatz_read(s)
     self.assertEqual(i, 10)
     self.assertEqual(j, 10)
+
+  # empty input. should skip and keep going.
+  def test_read_3(self):
+    s    = ""
+    self.assertRaises(ValueError, collatz_read, s)
+  
+  # empty input. should skip and keep going.
+  def test_read_4(self):
+    s    = "    "
+    self.assertRaises(ValueError, collatz_read, s)
 
   # ------------
   # cycle_length
@@ -151,6 +161,20 @@ class TestCollatz(TestCase):
   # range boundaries inverted
   def test_solve_3(self):
     r = StringIO("10 1\n200 100\n210 201\n1000 900\n")
+    w = StringIO()
+    collatz_solve(r, w)
+    self.assertEqual(w.getvalue(), "10 1 20\n200 100 125\n210 201 89\n1000 900 174\n")
+
+  # empty line inserted
+  def test_solve_4(self):
+    r = StringIO("10 1\n200 100\n\n210 201\n1000 900\n")
+    w = StringIO()
+    collatz_solve(r, w)
+    self.assertEqual(w.getvalue(), "10 1 20\n200 100 125\n210 201 89\n1000 900 174\n")
+
+  # line with only white space inserted
+  def test_solve_5(self):
+    r = StringIO("10 1\n200 100\n    \n210 201\n1000 900\n")
     w = StringIO()
     collatz_solve(r, w)
     self.assertEqual(w.getvalue(), "10 1 20\n200 100 125\n210 201 89\n1000 900 174\n")

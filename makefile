@@ -58,6 +58,7 @@ status:
 	git status
 
 test: RunCollatz.tmp TestCollatz.tmp
+	cp TestCollatz.tmp TestCollatz.out
 	cp TestCollatz.out ./collatz-tests/$(EID)-TestCollatz.out
 	cp TestCollatz.py ./collatz-tests/$(EID)-TestCollatz.py
 
