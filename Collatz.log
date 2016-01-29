@@ -1,3 +1,15 @@
+commit 9519ded421df47a602a386f4d2d2d4d4c9ad41b8
+Author: ctimaeus <timaeus@utexas.edu>
+Date:   Fri Jan 29 15:12:38 2016 -0600
+
+    Readded collatz-test/myEID-... files for successful build on TravisCI.
+
+commit e5ed6ab40c2cfb4ba02b740504fc1d42be2aa2b9
+Author: ctimaeus <timaeus@utexas.edu>
+Date:   Fri Jan 29 15:04:54 2016 -0600
+
+    Updated git log: Collatz.log.
+
 commit b742fb0f0bc33c393c4fe380577b34cc8c9643c9
 Author: ctimaeus <timaeus@utexas.edu>
 Date:   Fri Jan 29 15:01:36 2016 -0600
