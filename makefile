@@ -1,9 +1,11 @@
+EID := cat3263
+
 FILES :=                              \
     .travis.yml                       \
-    collatz-tests/cat3263-RunCollatz.in   \
-    collatz-tests/cat3263-RunCollatz.out  \
-    collatz-tests/cat3263-TestCollatz.out \
-    collatz-tests/cat3263-TestCollatz.py  \
+    collatz-tests/$(EID)-RunCollatz.in   \
+    collatz-tests/$(EID)-RunCollatz.out  \
+    collatz-tests/$(EID)-TestCollatz.out \
+    collatz-tests/$(EID)-TestCollatz.py  \
     Collatz.html                      \
     Collatz.log                       \
     Collatz.py                        \
@@ -56,6 +58,7 @@ status:
 	git status
 
 test: RunCollatz.tmp TestCollatz.tmp
+	cp TestCollatz.out ./collatz-tests/$(EID)-TestCollatz.out
 
 collatz-tests:
 	git clone https://github.com/cs373-fall-2016/collatz-tests.git
