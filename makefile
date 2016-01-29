@@ -1,22 +1,22 @@
 EID := cat3263
 
-FILES :=                              \
-    .travis.yml                       \
+FILES :=                   							 \
+    .travis.yml                      		 \
     collatz-tests/$(EID)-RunCollatz.in   \
     collatz-tests/$(EID)-RunCollatz.out  \
     collatz-tests/$(EID)-TestCollatz.out \
     collatz-tests/$(EID)-TestCollatz.py  \
-    Collatz.html                      \
-    Collatz.log                       \
-    Collatz.py                        \
-    RunCollatz.in                     \
-    RunCollatz.out                    \
-    RunCollatz.py                     \
-    TestCollatz.out                   \
+    Collatz.html                      	 \
+    Collatz.log                      		 \
+    Collatz.py                        	 \
+    RunCollatz.in                     	 \
+    RunCollatz.out                    	 \
+    RunCollatz.py                     	 \
+    TestCollatz.out                   	 \
     TestCollatz.py
 
 check:
-	@not_found=0;                                 \
+	@not_found=0;                                 	\
     for i in $(FILES);                            \
     do                                            \
         if [ -e $$i ];                            \
@@ -59,6 +59,7 @@ status:
 
 test: RunCollatz.tmp TestCollatz.tmp
 	cp TestCollatz.out ./collatz-tests/$(EID)-TestCollatz.out
+	cp TestCollatz.py ./collatz-tests/$(EID)-TestCollatz.py
 
 collatz-tests:
 	git clone https://github.com/cs373-spring-2016/collatz-tests.git

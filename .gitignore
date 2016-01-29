@@ -20,10 +20,6 @@ collatz-tests/bp7897-RunCollatz.in
 collatz-tests/bp7897-RunCollatz.out
 collatz-tests/bp7897-TestCollatz.out
 collatz-tests/bp7897-TestCollatz.py
-collatz-tests/cat3263-RunCollatz.in
-collatz-tests/cat3263-RunCollatz.out
-collatz-tests/cat3263-TestCollatz.out
-collatz-tests/cat3263-TestCollatz.py
 collatz-tests/dfw369-RunCollatz.in
 collatz-tests/dfw369-RunCollatz.out
 collatz-tests/dfw369-TestCollatz.out
@@ -78,6 +74,3 @@ collatz-tests/upn63-TestCollatz.out
 collatz-tests/upn63-TestCollatz.py
 collatz-tests/xmr73-RunCollatz.in
 collatz-tests/xmr73-RunCollatz.out
-CacheHeater.py
-TestGen.py
-TileFactory.py
