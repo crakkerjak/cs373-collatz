@@ -1,3 +1,15 @@
+commit f8ad5b65dd36bceedc9d072765a2db3feeb696d6
+Author: ctimaeus <timaeus@utexas.edu>
+Date:   Fri Jan 29 17:05:02 2016 -0600
+
+    Added handling and tests for input lines that are blank or only white space. Sphere tests pass!
+
+commit ef7f3329b8dc1dbd1a3bfbe2a8eec30f520923ba
+Author: ctimaeus <timaeus@utexas.edu>
+Date:   Fri Jan 29 16:34:10 2016 -0600
+
+    Final updates to Collatz.html, Collatz.log, and TestCollatz.out.
+
 commit 9519ded421df47a602a386f4d2d2d4d4c9ad41b8
 Author: ctimaeus <timaeus@utexas.edu>
 Date:   Fri Jan 29 15:12:38 2016 -0600

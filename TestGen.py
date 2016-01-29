@@ -20,8 +20,8 @@ UPPER_BOUND = 999999
 # cycle_length
 # ------------
 
-def cycle_length(n, cache) :
-  if n in cache :
+def cycle_length(n, cache):
+  if n in cache:
     return cache[n]
 
   if n % 2 == 0:
@@ -38,7 +38,7 @@ def cycle_length(n, cache) :
 # collatz_eval
 # ------------
 
-def collatz_eval(i, j, cache) :
+def collatz_eval(i, j, cache):
   """
   i the beginning of the range, inclusive
   j the end       of the range, inclusive
@@ -53,7 +53,7 @@ def collatz_eval(i, j, cache) :
 
   max_len = 1
   
-  for n in range(i, j + 1) :
+  for n in range(i, j + 1):
     # get cycle length for n 
     l = cycle_length(n, cache)
 
@@ -63,19 +63,19 @@ def collatz_eval(i, j, cache) :
     
   return max_len
 
-def get_range(max_range) :
+def get_range(max_range):
   i = randint(lower_bound, UPPER_BOUND)
   j = 0
   sign = 0
-  while sign == 0 :
+  while sign == 0:
     sign = randint(-1, 1)
-  if sign < 0 :
+  if sign < 0:
     j = i - randint(0, min([i, randint(0, max_range)]))
-  else :
+  else:
     j = i + randint(0, min([UPPER_BOUND-i, randint(0, max_range)]))
   return [i, j]
 
-with open(INPUT_FILE, 'w') as i_file, open(OUTPUT_FILE, 'w') as o_file :
+with open(INPUT_FILE, 'w') as i_file, open(OUTPUT_FILE, 'w') as o_file:
   lower_bound = 1
   cache = {1:1,2:2}
   test_no = 1
@@ -93,14 +93,14 @@ with open(INPUT_FILE, 'w') as i_file, open(OUTPUT_FILE, 'w') as o_file :
   # single int valley range
   print('10 10', file = i_file)
   print('10 10 ' + str(collatz_eval(10, 10, cache)), file = o_file)
-  # blank input line, code should skip it and continue (no output)
+  # blank input line, code should skip it and continue(no output)
   print('', file = i_file)
   # input line with only white space, code should skip it and continue
   print('    ', file = i_file)
 
   # generate and write random tests
-  for max_range in MAX_RANGES :
-    for n in range(TESTS_PER_MAXRANGE) :
+  for max_range in MAX_RANGES:
+    for n in range(TESTS_PER_MAXRANGE):
       i, j = get_range(max_range) 
       
       test_range = str(i) + ' ' + str(j)
@@ -111,6 +111,6 @@ with open(INPUT_FILE, 'w') as i_file, open(OUTPUT_FILE, 'w') as o_file :
       test_no += 1
     
 # copy files to public repo directory
-if TARGET_DIR != '' :
-  for f in [INPUT_FILE, OUTPUT_FILE] :
+if TARGET_DIR != '':
+  for f in [INPUT_FILE, OUTPUT_FILE]:
     copy(f, TARGET_DIR + '/' + EID + '-' + f)
