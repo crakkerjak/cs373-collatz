@@ -1,0 +1,101 @@
+commit b742fb0f0bc33c393c4fe380577b34cc8c9643c9
+Author: ctimaeus <timaeus@utexas.edu>
+Date:   Fri Jan 29 15:01:36 2016 -0600
+
+    Removed collatz-tests/cat3263-TestCollatz.out
+
+commit 178cb6ac96e5ec6c3747b8174a31e8ead1c83bcc
+Author: ctimaeus <timaeus@utexas.edu>
+Date:   Fri Jan 29 14:59:36 2016 -0600
+
+    Cleaned up repo for turn-in.
+
+commit eccc6ab1ab4b36c5d7bf475e1809014a688ba120
+Author: ctimaeus <timaeus@utexas.edu>
+Date:   Fri Jan 29 14:25:50 2016 -0600
+
+    Cleaned up style/consistency.
+
+commit c2ae1fbf77a9cdfd63747288e7794bc427d14634
+Author: ctimaeus <timaeus@utexas.edu>
+Date:   Fri Jan 29 13:02:48 2016 -0600
+
+    Added unit tests for cycle_length and non-random acceptance tests.
+
+commit 6cab7a16571e72404568e61bffde56debd9faf4a
+Author: admin <pathikritbhowmick@msn.com>
+Date:   Wed Jan 27 23:33:36 2016 -0600
+
+    Updated unit tests for full coverage and appropriateness. Resolves #13. Sphere is buggin out. Optimizations assumed good. #10 resolved.
+
+commit 667cd94a399c391c560d125451454bb1ffafcea4
+Author: admin <pathikritbhowmick@msn.com>
+Date:   Mon Jan 25 21:54:08 2016 -0600
+
+    Range tiling works. Still too slow for Sphere. Resolves #16.
+
+commit 85b4bcbd56db627134ea37afe778c5b25f66ceb3
+Author: admin <pathikritbhowmick@msn.com>
+Date:   Mon Jan 25 21:43:45 2016 -0600
+
+    Range tiling was using indexed values instead of indexes in if-statement. Fixes #18.
+
+commit 14c071a75764fb3c94a7aa90a422fd3375f3ef44
+Author: admin <pathikritbhowmick@msn.com>
+Date:   Mon Jan 25 21:40:53 2016 -0600
+
+    Implement range tiling. Fails with wrong answer.
+
+commit 573e05e66657f33b8c42e109ff0bed745c17543b
+Author: admin <pathikritbhowmick@msn.com>
+Date:   Mon Jan 25 19:51:44 2016 -0600
+
+    Made cache global and restored function interfaces. Resolves #17. Also added warm cache and "tile" array in preparation to optimize collatz_eval.
+
+commit bb8733fa9abeb92c9ad53497f968be13dd6965f1
+Author: admin <pathikritbhowmick@msn.com>
+Date:   Mon Jan 25 17:24:43 2016 -0600
+
+    Made cycle length calculation recursive to the length of each number in a computed cycle and updated acceptance tests.
+
+commit 0e058f729492273661d46a4e1d98e26d96de91f5
+Author: admin <pathikritbhowmick@msn.com>
+Date:   Mon Jan 25 09:08:40 2016 -0600
+
+    Updated range handling for cases where j<i. Resolves #14.
+
+commit bf4179f675e6b80e67490446efa1d1653749a62f
+Author: admin <pathikritbhowmick@msn.com>
+Date:   Sun Jan 24 18:47:40 2016 -0600
+
+    Added lazy cache to SphereCollatz.py. Still fails: "time limit exceeded."
+
+commit 3eb555c3863ef75ccf8de2b1714133b647dc260b
+Author: admin <pathikritbhowmick@msn.com>
+Date:   Sun Jan 24 17:36:59 2016 -0600
+
+    Collected Collatz.py and TestCollatz.py into SphereCollatz.py for testing. Resolves #9.
+
+commit 3cd1410f97a0f7ab124c9d36134636c88730d696
+Author: admin <pathikritbhowmick@msn.com>
+Date:   Sun Jan 24 12:08:11 2016 -0600
+
+    Added IO validation assertions and simple eval solution to Collatz.py. Resolves #8.
+
+commit 6b8009d32dfa9d753a94829b47e5b4173d0f1a58
+Author: admin <pathikritbhowmick@msn.com>
+Date:   Sun Jan 24 00:32:43 2016 -0600
+
+    Added unit tests for corner cases and input validation. Resolves #7. Fixes #6.
+
+commit 075892a6bfe139d3b46f56b36e6014dd8d7c9773
+Author: admin <pathikritbhowmick@msn.com>
+Date:   Sat Jan 23 21:39:16 2016 -0600
+
+    Unit tests fixed. Closes #6.
+
+commit 36006399084b2260f05c0e0708c97e3f272afa39
+Author: admin <pathikritbhowmick@msn.com>
+Date:   Sat Jan 23 19:30:26 2016 -0600
+
+    Initial setup: Dummy test/doc/log files copied/created.
