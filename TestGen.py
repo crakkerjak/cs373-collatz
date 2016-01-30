@@ -93,10 +93,6 @@ with open(INPUT_FILE, 'w') as i_file, open(OUTPUT_FILE, 'w') as o_file:
   # single int valley range
   print('10 10', file = i_file)
   print('10 10 ' + str(collatz_eval(10, 10, cache)), file = o_file)
-  # blank input line, code should skip it and continue(no output)
-  print('', file = i_file)
-  # input line with only white space, code should skip it and continue
-  print('    ', file = i_file)
 
   # generate and write random tests
   for max_range in MAX_RANGES:
