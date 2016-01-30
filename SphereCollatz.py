@@ -67,7 +67,7 @@ def cycle_length(n):
   if n % 2 == 0:
     l = 1 + cycle_length(n // 2)
   else:
-    l = 2 + cycle_length(n +(n >> 1) + 1)
+    l = 2 + cycle_length(n + (n >> 1) + 1)
 
   assert l > 0
   # cache and return cycle length
@@ -89,10 +89,15 @@ def collatz_eval(i, j):
   assert isinstance(i, int) and isinstance(j, int)
   assert 0 < i and i < UPPER_BOUND
   assert 0 < j and j < UPPER_BOUND
+  # fix range
   if i > j:
     i, j = j, i
-  max_len = 1
+  # optimize range : numbers <= half of max have shorter cycle lengths than
+  # those that must be divided by 2 to reach that range
+  if i < j // 2 + 1:
+    i = j // 2 + 1
 
+  max_len = 1
 
   tile_size = UPPER_BOUND // len(TILES)
   i_tile = i // tile_size

@@ -27,7 +27,7 @@ def cycle_length(n, cache):
   if n % 2 == 0:
     l = 1 + cycle_length(n // 2, cache)
   else:
-    l = 2 + cycle_length(n +(n >> 1) + 1, cache)
+    l = 2 + cycle_length(n + (n >> 1) + 1, cache)
 
   # cache and return cycle length
   cache[n] = l

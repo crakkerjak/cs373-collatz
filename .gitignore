@@ -74,3 +74,5 @@ collatz-tests/upn63-TestCollatz.out
 collatz-tests/upn63-TestCollatz.py
 collatz-tests/xmr73-RunCollatz.in
 collatz-tests/xmr73-RunCollatz.out
+RunCollatz.tmp
+TestCollatz.tmp
