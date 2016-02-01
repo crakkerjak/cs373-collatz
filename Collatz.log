@@ -1,3 +1,21 @@
+commit 8771d74e787ef0b91822c994c9a75bbbfecb32c9
+Author: ctimaeus <timaeus@utexas.edu>
+Date:   Sat Jan 30 10:47:04 2016 -0600
+
+    Added range optimization in collatz_eval
+
+commit e0bacf1b711b16131da8901f01c65b80fc4a64d2
+Author: ctimaeus <timaeus@utexas.edu>
+Date:   Sat Jan 30 09:34:15 2016 -0600
+
+    Removed blank line and white space acceptance tests per Downing
+
+commit f15346a6ea80bac2a1a46513a7515f98efc9a6de
+Author: ctimaeus <timaeus@utexas.edu>
+Date:   Fri Jan 29 17:08:31 2016 -0600
+
+    Cleaned up TestGen.py formatting and updated Collatz.log with final bug fix.
+
 commit f8ad5b65dd36bceedc9d072765a2db3feeb696d6
 Author: ctimaeus <timaeus@utexas.edu>
 Date:   Fri Jan 29 17:05:02 2016 -0600
